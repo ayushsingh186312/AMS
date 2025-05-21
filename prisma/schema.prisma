@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  username  String    @unique
+  password  String
+  role      String    // "Employee", "Manager", or "Admin"
+  requests  Request[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Software {
+  id           Int       @id @default(autoincrement())
+  name         String
+  description  String
+  accessLevels String[]  // ["Read", "Write", "Admin"]
+  requests     Request[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Request {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+  softwareId Int
+  software   Software @relation(fields: [softwareId], references: [id])
+  accessType String   // "Read", "Write", or "Admin"
+  reason     String
+  status     String   // "Pending", "Approved", or "Rejected"
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
