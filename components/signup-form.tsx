@@ -68,18 +68,18 @@ export default function SignupForm() {
             <Label htmlFor="password">Password</Label>
             <Input id="password" name="password" type="password" required />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 ">
             <Label htmlFor="confirmPassword">Confirm Password</Label>
             <Input id="confirmPassword" name="confirmPassword" type="password" required />
           </div>
         </CardContent>
-        <CardFooter className="flex flex-col space-y-4">
+        <CardFooter className="flex flex-col space-y-4 mt-4">
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Creating account..." : "Sign Up"}
           </Button>
-          <div className="text-center text-sm">
+          <div className="text-center text-sm ">
             Already have an account?{" "}
-            <Link href="/" className="text-primary hover:underline">
+            <Link href="/" className="font-bold text-primary hover:underline">
               Login
             </Link>
           </div>
