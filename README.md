@@ -18,16 +18,22 @@ we can start editing the page by modifying `app/page.tsx`. The page auto-updates
 
 
 ## System Overview
-# 2.1 User Roles
+## 2.1 User Roles
 Employee: Can sign up, login, request software access
+
 Manager: Can view and approve/reject access requests
+
 Admin: Can create software, has full access
 
-# 2.2 Functionalities
+## 2.2 Functionalities
 Sign-Up / Login with JWT
+
 Role-based redirection
+
 Software management (Admin only)
+
 Request access to software (Employee)
+
 Approve/reject requests (Manager)
 
 ## I have implemented with Next.js, Tailwind, Typescript, PrismaORM, PostgresSQL.
